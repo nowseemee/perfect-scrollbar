@@ -70,7 +70,6 @@ function bindTouchHandler(element, i, supportsTouch, supportsIePointer) {
   }
   function touchStart(e) {
     if (shouldHandle(e)) {
-      inLocalTouch = true;
 
       var touch = getTouch(e);
 
@@ -87,6 +86,8 @@ function bindTouchHandler(element, i, supportsTouch, supportsIePointer) {
     }
   }
   function touchMove(e) {
+    inLocalTouch = true;
+
     if (!inLocalTouch && i.settings.swipePropagation) {
       touchStart(e);
     }
